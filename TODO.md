@@ -1,16 +1,16 @@
 #### SQL TODO LIST
 
 ### SET UP
-[] Set up all Server Folders
-    []  gitignore
-    []  Front End
-    []  Back End
-    []  README
+[X] Set up all Server Folders
+    [X]  gitignore
+    [X]  Front End
+    [X]  Back End
+    [X]  README
 
 ### FRONT END
     
 ### BACK END
-
+    
 ### MISC
 
 [] Style Web Page
