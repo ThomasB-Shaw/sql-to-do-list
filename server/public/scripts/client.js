@@ -30,7 +30,7 @@ function appendTasks(array) {
         if (array[i].status === true) {
             $(".outputField").append(`
         <li data-id=${array[i].id} class='taskComplete'>
-        <p> ${array[i].task}: ${array[i].status} </p>
+        <p> ${array[i].task} </p>
         <button class="deleteBtn">DELETE</button>
         </li>
         `);
@@ -63,6 +63,7 @@ function submitTask(){
         data: {task: newTask}
     }).then(function(response){
         console.log(response);
+        $('#inputTask').val('');
         getTasks();
     }).catch(function(error){
         console.log(error);
