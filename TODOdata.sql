@@ -12,3 +12,9 @@ VALUES ('Play Gloomhaven');
 
 INSERT INTO "tasks" ("task")
 VALUES ('Update budget Excel Sheet');
+
+-- Grabs all data and sorts by ID
+SELECT * FROM "tasks" ORDER BY "id";
+
+-- Creates new Row (Task), |Sanitized|
+INSERT INTO "tasks" ("task") VALUES ($1);

@@ -6,7 +6,8 @@ function onReady() {
     console.log('Hello from Jquery!');
     clickListener();
     getTasks();
-}
+} // End of onReady function
+
 
 // Call GET Route Server side, and appends all info rows from the Database to the DOM
 function getTasks() {
@@ -40,13 +41,24 @@ function appendTasks(array) {
 function clickListener() {
     $('.outputField').on('click', '.completeBtn', completeClick);
     $('.outputField').on('click', '.deleteBtn', deleteClick);
-    $('#submitBtn').on('click', submitClick);
+    $('#submitBtn').on('click', submitTask);
 }
 
-function submitClick() {
-    console.log('click Submit');
-    $('#inputTask').val('');
-} // End of submitClick
+// Connects to POST Route on click of submit, POSTS new row to Database
+// Then Re - GETs, to append new row to the DOM
+function submitTask(){
+    let newTask = $('#inputTask').val();
+    $.ajax({
+        method: 'POST',
+        url:`/todo`,
+        data: {task: newTask}
+    }).then(function(response){
+        console.log(response);
+        getTasks();
+    }).catch(function(error){
+        console.log(error);
+    });
+}
 
 function completeClick() {
     console.log('click Complete');

@@ -14,4 +14,20 @@ router.get('/', (req, res) => {
     });
 });
 
+// POST ROUTE, Called in Client, uses input task field form DOM, creates new row in table,
+// Sanitized
+router.post('/', (req, res) => {
+    console.log(req.body);
+    let task = req.body.task;
+    let queryText = `INSERT INTO "tasks" ("task") VALUES ($1);`;
+    pool.query(queryText, [task]).then((result) => {
+        console.log(result);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in post', error);
+        res.sendStatus(500);
+    });
+});
+
+
 module.exports = router;
