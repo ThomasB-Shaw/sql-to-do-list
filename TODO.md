@@ -8,8 +8,8 @@
     [X]  README
 
 ### FRONT END
-    [] Create a front end experience that allows a user to create a Task
-        [] Create Post function that takes in inputs from input field and appends it to the DOM in a list format at the bottom of the current list
+    [X] Create a front end experience that allows a user to create a Task
+        [X] Create Post function that takes in inputs from input field and appends it to the DOM in a list format at the bottom of the current list
     [] Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
         [] Create GET request that can be place at:
             [] Page Load
@@ -23,8 +23,8 @@
         [] Delete function completed on delete button click
 
 ### BACK END
-    [] When the Task is created, it should be stored inside of a database
-        [] Create POST route
+    [X] When the Task is created, it should be stored inside of a database
+        [X] Create POST route
     [] Whether or not a Task is complete should also be stored in the database.
         [] Own section in table, boolean
         [] PUT Route
