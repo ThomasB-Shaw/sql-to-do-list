@@ -4,6 +4,7 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('Hello from Jquery!');
+    clickListener();
     getTasks();
 }
 
@@ -32,5 +33,25 @@ function appendTasks(array) {
         <button class="deleteBtn">DELETE</button>
         </li>
         `);
-    }
+    } // End of FOR Loop
 } // End of appendTasks
+
+// Cluster of click listeners to avoid unnecessary noise in onReady Function
+function clickListener() {
+    $('.outputField').on('click', '.completeBtn', completeClick);
+    $('.outputField').on('click', '.deleteBtn', deleteClick);
+    $('#submitBtn').on('click', submitClick);
+}
+
+function submitClick() {
+    console.log('click Submit');
+    $('#inputTask').val('');
+} // End of submitClick
+
+function completeClick() {
+    console.log('click Complete');
+} // End of completeClick
+
+function deleteClick() {
+    console.log('click DELETE');
+} // End of deleteClick
