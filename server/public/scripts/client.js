@@ -66,4 +66,15 @@ function completeClick() {
 
 function deleteClick() {
     console.log('click DELETE');
+    let taskID = $(this).closest('li').data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${taskID}`
+    }).then((response) => {
+        console.log('In DELETE', response);
+        getTasks();
+    }).catch((error) => {
+        console.log('Error DELETE', error);
+        alert('Error in DELETE!', error);
+    });
 } // End of deleteClick
