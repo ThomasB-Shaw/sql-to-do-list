@@ -29,6 +29,8 @@ router.post('/', (req, res) => {
     });
 }); // End of POST ROUTE
 
+// DELETE ROUTE, Called in client from button press, will remove a row in table based on rows id called.
+// Sanitized
 router.delete('/:id', (req,res) => {
     let taskID = req.params.id;
     let queryText = `DELETE FROM "tasks" WHERE "id" = $1;`;
@@ -41,5 +43,19 @@ router.delete('/:id', (req,res) => {
     });
 }); // End of DELETE ROUTE
 
+// PUT ROUTE, Called in client, which will update a status of false to a value of true in the database
+//Sanitized 
+router.put('/status/:id', (req,res) => {
+    let taskID = req.params.id;
+    let status = req.body.status
+    let queryText = `UPDATE "tasks" SET "status" = $1 WHERE "id" = $2;`;
+    pool.query(queryText, [status, taskID]).then((result) => {
+        console.log('PUT RESULT', result);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error in PUT', error);
+        res.sendStatus(500);
+    });
+}); // End of PUT ROUTE
 
 module.exports = router;

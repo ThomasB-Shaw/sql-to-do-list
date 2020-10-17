@@ -6,3 +6,10 @@ header {
     background-color: #1F1B24;
 }
 
+.taskComplete {
+    background-color: yellowgreen;
+}
+
+.taskIncomplete{
+    background-color: tomato;
+}

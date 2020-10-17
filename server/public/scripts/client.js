@@ -27,13 +27,22 @@ function appendTasks(array) {
     $('.outputField').empty();
     console.log('DataValues', array);
     for (let i = 0; i < array.length; i++) {
+        if (array[i].status === true) {
+            $(".outputField").append(`
+        <li data-id=${array[i].id} class='taskComplete'>
+        <p> ${array[i].task}: ${array[i].status} </p>
+        <button class="deleteBtn">DELETE</button>
+        </li>
+        `);
+        } else {
         $(".outputField").append(`
-        <li data-id=${array[i].id}>
+        <li data-id=${array[i].id} class='taskIncomplete'>
         <p> ${array[i].task}: ${array[i].status} </p>
         <button class="completeBtn">Complete Task</button>
         <button class="deleteBtn">DELETE</button>
         </li>
         `);
+        }
     } // End of FOR Loop
 } // End of appendTasks
 
@@ -60,10 +69,24 @@ function submitTask(){
     });
 }
 
+// Upon click from DOM, this function grabs the ID of the row it is in by the DATA set in <li> 
 function completeClick() {
     console.log('click Complete');
+    let taskID = $(this).closest('li').data('id');
+    $.ajax({
+        method: 'PUT',
+        url: `/todo/status/${taskID}`,
+        data: {status: true}
+    }).then((response) => {
+        console.log('Response PUT', response);
+        getTasks();
+    }).catch((error) => {
+        console.log('ERROR IN PUT', error);
+        alert('ERROR IN PUT', error);
+    })
 } // End of completeClick
 
+// Upon click in the DOM, this function grabs the ID of the row it is in by the DATA set in the <li> and send that back to the router, to remove the row selected
 function deleteClick() {
     console.log('click DELETE');
     let taskID = $(this).closest('li').data('id');
