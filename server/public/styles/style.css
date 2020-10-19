@@ -7,9 +7,12 @@ header {
 }
 
 .taskComplete {
-    background-color:  #00ffbf	;
+    background-color:  #66ff66	;
+    text-shadow: 1px 1px black;
+    border: solid black;
 }
 
 .taskIncomplete{
     background-color: #909090;
+    border: solid black;
 }
