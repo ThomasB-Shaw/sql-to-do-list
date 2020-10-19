@@ -18,3 +18,9 @@ SELECT * FROM "tasks" ORDER BY "id";
 
 -- Creates new Row (Task), |Sanitized|
 INSERT INTO "tasks" ("task") VALUES ($1);
+
+-- DELETES Row from databse, |Sanitized|
+DELETE FROM "tasks" WHERE "id" = $1;
+
+-- Updates data base to switch status to true, |Sanitized|
+`UPDATE "tasks" SET "status" = $1 WHERE "id" = $2;`

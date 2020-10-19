@@ -38,9 +38,9 @@
 
 
 ### MISC
-[] Read Instructions Over
+[X] Read Instructions Over
     [X] Friday
     [] Saturday
-    [] Sunday
+    [X] Sunday
 [] Complete README.md
 [] Todo list finish, all tasks complete

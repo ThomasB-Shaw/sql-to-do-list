@@ -37,7 +37,7 @@ function appendTasks(array) {
         } else {
         $(".outputField").append(`
         <li data-id=${array[i].id} class='taskIncomplete'>
-        <p> ${array[i].task}: ${array[i].status} </p>
+        <p> ${array[i].task}</p>
         <button class="completeBtn">Complete Task</button>
         <button class="deleteBtn">DELETE</button>
         </li>
